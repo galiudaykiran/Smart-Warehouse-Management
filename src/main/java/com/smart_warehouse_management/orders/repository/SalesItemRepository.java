@@ -1,5 +1,9 @@
 package com.smart_warehouse_management.orders.repository;
 
-public interface SalesItemRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.smart_warehouse_management.orders.entity.SalesItem;
+
+public interface SalesItemRepository extends JpaRepository<SalesItem, Long>{
 
 }
