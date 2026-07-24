@@ -1,5 +1,5 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.Service.impl;
+package com.smart_warehouse_management.product_and_inventory.Service.impl;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -7,14 +7,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.smart_warehouse_management.Product_And_Inventory.Service.CategoryService;
-import com.smart_warehouse_management.Product_And_Inventory.dto.CategoryRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.CategoryResponseDTO;
-import com.smart_warehouse_management.Product_And_Inventory.entity.Category;
-import com.smart_warehouse_management.Product_And_Inventory.exception.CategoryNotFoundException;
-import com.smart_warehouse_management.Product_And_Inventory.exception.DuplicateResourceException;
-import com.smart_warehouse_management.Product_And_Inventory.mapper.CategoryMapper;
-import com.smart_warehouse_management.Product_And_Inventory.repository.CategoryRepository;
+import com.smart_warehouse_management.Authentication.Exception.DuplicateResourceException;
+import com.smart_warehouse_management.product_and_inventory.Service.CategoryService;
+import com.smart_warehouse_management.product_and_inventory.dto.CategoryRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.CategoryResponseDTO;
+import com.smart_warehouse_management.product_and_inventory.entity.Category;
+import com.smart_warehouse_management.product_and_inventory.exception.CategoryNotFoundException;
+import com.smart_warehouse_management.product_and_inventory.mapper.CategoryMapper;
+import com.smart_warehouse_management.product_and_inventory.repository.CategoryRepository;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -97,6 +97,8 @@ public class CategoryServiceImpl implements CategoryService {
 
         categoryRepository.delete(category);
     }
+
+	
     
    
 

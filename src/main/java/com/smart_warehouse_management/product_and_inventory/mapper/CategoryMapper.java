@@ -1,9 +1,9 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.mapper;
+package com.smart_warehouse_management.product_and_inventory.mapper;
 
-import com.smart_warehouse_management.Product_And_Inventory.dto.CategoryRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.CategoryResponseDTO;
-import com.smart_warehouse_management.Product_And_Inventory.entity.Category;
+import com.smart_warehouse_management.product_and_inventory.dto.CategoryRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.CategoryResponseDTO;
+import com.smart_warehouse_management.product_and_inventory.entity.Category;
 
 public class CategoryMapper {
 

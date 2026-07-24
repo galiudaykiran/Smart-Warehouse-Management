@@ -1,10 +1,10 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.Service;
+package com.smart_warehouse_management.product_and_inventory.Service;
 
 import org.springframework.data.domain.Page;
 
-import com.smart_warehouse_management.Product_And_Inventory.dto.SupplierRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.SupplierResponseDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.SupplierRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.SupplierResponseDTO;
 
 public interface SupplierService {
 

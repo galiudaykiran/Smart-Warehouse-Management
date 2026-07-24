@@ -1,5 +1,5 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.Controller;
+package com.smart_warehouse_management.product_and_inventory.controller;
 
 import java.util.List;
 
@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.smart_warehouse_management.Product_And_Inventory.Service.ProductService;
-import com.smart_warehouse_management.Product_And_Inventory.dto.ProductRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.ProductResponseDTO;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.smart_warehouse_management.product_and_inventory.Service.ProductService;
+import com.smart_warehouse_management.product_and_inventory.dto.ProductRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.ProductResponseDTO;
 
 import jakarta.validation.Valid;
 

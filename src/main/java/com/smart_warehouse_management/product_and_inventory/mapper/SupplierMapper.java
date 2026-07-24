@@ -1,9 +1,9 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.mapper;
+package com.smart_warehouse_management.product_and_inventory.mapper;
 
-import com.smart_warehouse_management.Product_And_Inventory.dto.SupplierRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.SupplierResponseDTO;
-import com.smart_warehouse_management.Product_And_Inventory.entity.Supplier;
+import com.smart_warehouse_management.product_and_inventory.dto.SupplierRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.SupplierResponseDTO;
+import com.smart_warehouse_management.product_and_inventory.entity.Supplier;
 
 public class SupplierMapper {
 

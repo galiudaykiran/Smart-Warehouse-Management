@@ -1,4 +1,4 @@
-package com.smart_warehouse_management.Product_And_Inventory.exception;
+package com.smart_warehouse_management.product_and_inventory.exception;
 
 public class SupplierNotFoundException extends RuntimeException {
 

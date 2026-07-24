@@ -1,11 +1,11 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.util;
+package com.smart_warehouse_management.product_and_inventory.util;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.stereotype.Component;
 
-import com.smart_warehouse_management.Product_And_Inventory.repository.ProductRepository;
+import com.smart_warehouse_management.product_and_inventory.repository.ProductRepository;
 
 @Component
 public class BarcodeGenerator {

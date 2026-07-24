@@ -1,13 +1,10 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.Service;
-
-import java.util.List;
+package com.smart_warehouse_management.product_and_inventory.Service;
 
 import org.springframework.data.domain.Page;
 
-import com.smart_warehouse_management.Product_And_Inventory.dto.CategoryRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.CategoryResponseDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.ProductResponseDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.CategoryRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.CategoryResponseDTO;
 
 public interface CategoryService {
 

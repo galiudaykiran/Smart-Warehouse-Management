@@ -1,8 +1,8 @@
-package com.smart_warehouse_management.Product_And_Inventory.specification;
+package com.smart_warehouse_management.product_and_inventory.specification;
 
 import org.springframework.data.jpa.domain.Specification;
 
-import com.smart_warehouse_management.Product_And_Inventory.entity.Product;
+import com.smart_warehouse_management.product_and_inventory.entity.Product;
 
 public class ProductSpecification {
 

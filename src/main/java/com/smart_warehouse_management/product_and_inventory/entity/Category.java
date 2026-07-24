@@ -1,5 +1,5 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.entity;
+package com.smart_warehouse_management.product_and_inventory.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
