@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-<<<<<<<< HEAD:src/main/java/com/smart_warehouse_management/Authentication/Exception/AuthenticationGlobalExceptionHandler.java
-public class AuthenticationGlobalExceptionHandler {
-========
+
 public class AuthentiationGlobalExceptionHandler {
->>>>>>>> 5ec6f1ee45300ca7d5c207a5a66b9be321b5269c:src/main/java/com/smart_warehouse_management/Authentication/Exception/AuthentiationGlobalExceptionHandler.java
+
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleNotFound(ResourceNotFoundException ex) {
