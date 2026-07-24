@@ -10,6 +10,7 @@ import com.smart_warehouse_management.orders.dto.SalesOrderRequestDTO;
 import com.smart_warehouse_management.orders.entity.SalesItem;
 import com.smart_warehouse_management.orders.entity.SalesOrder;
 import com.smart_warehouse_management.orders.enums.OrderStatus;
+import com.smart_warehouse_management.orders.exception.ResourceIsNotFoundException;
 import com.smart_warehouse_management.orders.repository.SalesOrderRepository;
 import com.smart_warehouse_management.orders.service.*;
 
@@ -68,7 +69,10 @@ public class SalesOrderServiceImpl implements SalesOrderService{
 	    
 	    public SalesOrder updateSalesOrder(Long id, SalesOrderRequestDTO dto) {
 
-	        SalesOrder order = salesOrderRepository.findById(id).orElseThrow();
+	        SalesOrder order = salesOrderRepository.findById(id).orElseThrow(() ->
+            new ResourceIsNotFoundException(
+	                "Purchase Order not found with id " + id));
+
 
 	        order.setCustomerName(dto.getCustomerName());
 
