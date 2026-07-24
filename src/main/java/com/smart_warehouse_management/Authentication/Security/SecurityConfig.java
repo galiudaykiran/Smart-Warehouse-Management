@@ -23,14 +23,17 @@ public class SecurityConfig {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
+    
+    
+    
+    
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration configuration)
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration)
             throws Exception {
 
         return configuration.getAuthenticationManager();
@@ -40,12 +43,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http)
             throws Exception {
 
-        http.csrf(csrf -> csrf.disable()).sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        http.csrf(csrf -> csrf.disable()).sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
-                .authorizeHttpRequests(auth -> auth
-
-                        .requestMatchers(
+                .authorizeHttpRequests(auth -> auth.requestMatchers(
                                 "/auth/login",
                                 "/auth/register",
                                 "/auth/forgot-password",
@@ -59,8 +59,7 @@ public class SecurityConfig {
 
                 .httpBasic(Customizer.withDefaults());
 
-        http.addFilterBefore(jwtAuthenticationFilter,
-                UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtAuthenticationFilter,UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
