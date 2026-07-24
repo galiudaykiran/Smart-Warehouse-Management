@@ -1,13 +1,13 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.Service;
+package com.smart_warehouse_management.product_and_inventory.Service;
 
 import java.util.List;
 
 import org.springframework.data.domain.Page;
-
-import com.smart_warehouse_management.Product_And_Inventory.dto.ProductRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.ProductResponseDTO;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.smart_warehouse_management.product_and_inventory.dto.ProductRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.ProductResponseDTO;
 
 public interface ProductService {
 

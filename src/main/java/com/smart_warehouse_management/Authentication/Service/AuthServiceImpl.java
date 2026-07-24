@@ -2,6 +2,8 @@ package com.smart_warehouse_management.Authentication.Service;
 
 import java.util.List;
 
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,6 @@ import com.smart_warehouse_management.Authentication.Exception.ResourceNotFoundE
 import com.smart_warehouse_management.Authentication.Mapper.UserMapper;
 import com.smart_warehouse_management.Authentication.Repository.UserRepository;
 import com.smart_warehouse_management.Authentication.Security.JwtUtil;
-
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 @Service
 public class AuthServiceImpl implements AuthService {

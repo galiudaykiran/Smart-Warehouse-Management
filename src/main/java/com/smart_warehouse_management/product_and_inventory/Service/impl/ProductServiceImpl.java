@@ -1,5 +1,5 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.Service.impl;
+package com.smart_warehouse_management.product_and_inventory.Service.impl;
 
 import java.util.List;
 
@@ -11,23 +11,23 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.smart_warehouse_management.Product_And_Inventory.Service.ProductService;
-import com.smart_warehouse_management.Product_And_Inventory.dto.ProductRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.ProductResponseDTO;
-import com.smart_warehouse_management.Product_And_Inventory.entity.Category;
-import com.smart_warehouse_management.Product_And_Inventory.entity.Product;
-import com.smart_warehouse_management.Product_And_Inventory.entity.Supplier;
-import com.smart_warehouse_management.Product_And_Inventory.exception.CategoryNotFoundException;
-import com.smart_warehouse_management.Product_And_Inventory.exception.ProductNotFoundException;
-import com.smart_warehouse_management.Product_And_Inventory.exception.SupplierNotFoundException;
-import com.smart_warehouse_management.Product_And_Inventory.mapper.ProductMapper;
-import com.smart_warehouse_management.Product_And_Inventory.repository.CategoryRepository;
-import com.smart_warehouse_management.Product_And_Inventory.repository.ProductRepository;
-import com.smart_warehouse_management.Product_And_Inventory.repository.SupplierRepository;
-import com.smart_warehouse_management.Product_And_Inventory.specification.ProductSpecification;
-import com.smart_warehouse_management.Product_And_Inventory.util.BarcodeGenerator;
-import com.smart_warehouse_management.Product_And_Inventory.util.FileUploadUtil;
-import com.smart_warehouse_management.Product_And_Inventory.util.SkuGenerator;
+import com.smart_warehouse_management.product_and_inventory.Service.ProductService;
+import com.smart_warehouse_management.product_and_inventory.dto.ProductRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.ProductResponseDTO;
+import com.smart_warehouse_management.product_and_inventory.entity.Category;
+import com.smart_warehouse_management.product_and_inventory.entity.Product;
+import com.smart_warehouse_management.product_and_inventory.entity.Supplier;
+import com.smart_warehouse_management.product_and_inventory.exception.CategoryNotFoundException;
+import com.smart_warehouse_management.product_and_inventory.exception.ProductNotFoundException;
+import com.smart_warehouse_management.product_and_inventory.exception.SupplierNotFoundException;
+import com.smart_warehouse_management.product_and_inventory.mapper.ProductMapper;
+import com.smart_warehouse_management.product_and_inventory.repository.CategoryRepository;
+import com.smart_warehouse_management.product_and_inventory.repository.ProductRepository;
+import com.smart_warehouse_management.product_and_inventory.repository.SupplierRepository;
+import com.smart_warehouse_management.product_and_inventory.specification.ProductSpecification;
+import com.smart_warehouse_management.product_and_inventory.util.BarcodeGenerator;
+import com.smart_warehouse_management.product_and_inventory.util.FileUploadUtil;
+import com.smart_warehouse_management.product_and_inventory.util.SkuGenerator;
 
 
 @Service

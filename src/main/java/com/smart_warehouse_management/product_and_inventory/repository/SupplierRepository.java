@@ -1,11 +1,11 @@
-package com.smart_warehouse_management.Product_And_Inventory.repository;
+package com.smart_warehouse_management.product_and_inventory.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.smart_warehouse_management.Product_And_Inventory.entity.Supplier;
+import com.smart_warehouse_management.product_and_inventory.entity.Supplier;
 
 @Repository
 public interface SupplierRepository extends JpaRepository<Supplier, Long> {

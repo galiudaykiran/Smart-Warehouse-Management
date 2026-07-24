@@ -1,5 +1,5 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.Service.impl;
+package com.smart_warehouse_management.product_and_inventory.Service.impl;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -7,14 +7,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.smart_warehouse_management.Product_And_Inventory.Service.SupplierService;
-import com.smart_warehouse_management.Product_And_Inventory.dto.SupplierRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.SupplierResponseDTO;
-import com.smart_warehouse_management.Product_And_Inventory.entity.Supplier;
-import com.smart_warehouse_management.Product_And_Inventory.exception.DuplicateResourceException;
-import com.smart_warehouse_management.Product_And_Inventory.exception.SupplierNotFoundException;
-import com.smart_warehouse_management.Product_And_Inventory.mapper.SupplierMapper;
-import com.smart_warehouse_management.Product_And_Inventory.repository.SupplierRepository;
+import com.smart_warehouse_management.Authentication.Exception.DuplicateResourceException;
+import com.smart_warehouse_management.product_and_inventory.Service.SupplierService;
+import com.smart_warehouse_management.product_and_inventory.dto.SupplierRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.SupplierResponseDTO;
+import com.smart_warehouse_management.product_and_inventory.entity.Supplier;
+import com.smart_warehouse_management.product_and_inventory.exception.SupplierNotFoundException;
+import com.smart_warehouse_management.product_and_inventory.mapper.SupplierMapper;
+import com.smart_warehouse_management.product_and_inventory.repository.SupplierRepository;
 
 @Service
 public class SupplierServiceImpl implements SupplierService {

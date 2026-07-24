@@ -1,5 +1,5 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.dto;
+package com.smart_warehouse_management.product_and_inventory.dto;
 
 import lombok.Data;
 

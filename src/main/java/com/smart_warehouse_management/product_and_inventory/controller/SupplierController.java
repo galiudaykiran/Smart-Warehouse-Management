@@ -1,5 +1,5 @@
 
-package com.smart_warehouse_management.Product_And_Inventory.Controller;
+package com.smart_warehouse_management.product_and_inventory.controller;
 
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.smart_warehouse_management.Product_And_Inventory.Service.SupplierService;
-import com.smart_warehouse_management.Product_And_Inventory.dto.SupplierRequestDTO;
-import com.smart_warehouse_management.Product_And_Inventory.dto.SupplierResponseDTO;
+import com.smart_warehouse_management.product_and_inventory.Service.SupplierService;
+import com.smart_warehouse_management.product_and_inventory.dto.SupplierRequestDTO;
+import com.smart_warehouse_management.product_and_inventory.dto.SupplierResponseDTO;
 
 import jakarta.validation.Valid;
 

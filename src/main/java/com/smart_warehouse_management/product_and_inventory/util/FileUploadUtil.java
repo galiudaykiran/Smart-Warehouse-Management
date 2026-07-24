@@ -1,4 +1,4 @@
-package com.smart_warehouse_management.Product_And_Inventory.util;
+package com.smart_warehouse_management.product_and_inventory.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,7 +10,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.smart_warehouse_management.Product_And_Inventory.config.FileStorageConfig;
+import com.smart_warehouse_management.product_and_inventory.config.FileStorageConfig;
 
 @Component
 public class FileUploadUtil {
