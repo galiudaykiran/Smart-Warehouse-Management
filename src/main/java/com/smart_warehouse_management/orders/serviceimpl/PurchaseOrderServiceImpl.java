@@ -37,7 +37,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
 	        order.setCreatedBy(1L); 
 
-	        order.setStatus(OrderStatus.PENDING);
+	        order.setStatus(OrderStatus.APPROVED);
 
 	        List<PurchaseItem> items = new ArrayList<>();
 
