@@ -1,0 +1,19 @@
+package com.smart_warehouse_management.Authentication.Dto;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class ForgotPasswordDto {
+
+    @Email(message = "Invalid email")
+    @NotBlank(message = "Email is required")
+    private String email;
+
+    @NotBlank(message = "New password is required")
+    private String newPassword;
+
+}
