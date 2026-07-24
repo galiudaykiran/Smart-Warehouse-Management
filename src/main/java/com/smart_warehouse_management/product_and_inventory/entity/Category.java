@@ -1,0 +1,25 @@
+
+package com.smart_warehouse_management.product_and_inventory.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "categories")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Category {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "category_name", nullable = false, unique = true, length = 100)
+    private String categoryName;
+
+    @Column(length = 500)
+    private String description;
+}

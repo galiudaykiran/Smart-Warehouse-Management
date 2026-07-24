@@ -1,0 +1,39 @@
+
+package com.smart_warehouse_management.product_and_inventory.util;
+
+import java.util.concurrent.ThreadLocalRandom;
+
+import org.springframework.stereotype.Component;
+
+import com.smart_warehouse_management.product_and_inventory.entity.Category;
+import com.smart_warehouse_management.product_and_inventory.repository.ProductRepository;
+
+@Component
+public class SkuGenerator {
+
+    private final ProductRepository productRepository;
+
+    public SkuGenerator(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    public String generateSku(Category category) {
+
+        String prefix = category.getCategoryName()
+                .substring(0, Math.min(3, category.getCategoryName().length()))
+                .toUpperCase();
+
+        String sku;
+
+        do {
+
+            int number = ThreadLocalRandom.current()
+                    .nextInt(1000, 9999);
+
+            sku = prefix + "-" + number;
+
+        } while (productRepository.existsBySku(sku));
+
+        return sku;
+    }
+}

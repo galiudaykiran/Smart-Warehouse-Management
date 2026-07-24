@@ -12,6 +12,8 @@ import com.smart_warehouse_management.orders.dto.PurchaseOrderRequestDTO;
 import com.smart_warehouse_management.orders.entity.PurchaseItem;
 import com.smart_warehouse_management.orders.entity.PurchaseOrder;
 import com.smart_warehouse_management.orders.enums.OrderStatus;
+import com.smart_warehouse_management.orders.exception.InvalidOrderStatusException;
+import com.smart_warehouse_management.orders.exception.ResourceIsNotFoundException;
 import com.smart_warehouse_management.orders.repository.PurchaseOrderRepository;
 import com.smart_warehouse_management.orders.service.*;
 
@@ -74,7 +76,10 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 	    
 	    public PurchaseOrder updatePurchaseOrder(Long id, PurchaseOrderRequestDTO dto) {
 
-	        PurchaseOrder order = purchaseOrderRepository.findById(id).orElseThrow();
+	    	PurchaseOrder order = purchaseOrderRepository.findById(id)
+	    	        .orElseThrow(() ->
+	    	            new ResourceIsNotFoundException(
+	    	                "Purchase Order not found with id " + id));
 
 	        order.setSupplierId(dto.getSupplierId());
 
@@ -84,7 +89,14 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 	    
 	    public PurchaseOrder approvePurchaseOrder(Long id) {
 
-	        PurchaseOrder order = purchaseOrderRepository.findById(id).orElseThrow();
+	    	 PurchaseOrder order = purchaseOrderRepository.findById(id)
+	    	            .orElseThrow(() ->
+	    	                    new ResourceIsNotFoundException(
+	    	                            "Purchase Order not found with id " + id));
+	        if(order.getStatus()!=OrderStatus.PENDING) {
+	        	 throw new InvalidOrderStatusException(
+	        	            "Only PENDING orders can be approved");
+	        }
 
 	        order.setStatus(OrderStatus.APPROVED);
 
@@ -94,7 +106,14 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 	    
 	    public PurchaseOrder rejectPurchaseOrder(Long id) {
 
-	        PurchaseOrder order = purchaseOrderRepository.findById(id).orElseThrow();
+	    	 PurchaseOrder order = purchaseOrderRepository.findById(id)
+	    	            .orElseThrow(() ->
+	    	                    new ResourceIsNotFoundException(
+	    	                            "Purchase Order not found with id " + id));
+	    	 if(order.getStatus()==OrderStatus.REJECTED) {
+	        	 throw new InvalidOrderStatusException(
+	        	            "Only approved or oedning orders can be rejected");
+	        }
 
 	        order.setStatus(OrderStatus.REJECTED);
 
