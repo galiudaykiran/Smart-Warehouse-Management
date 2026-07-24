@@ -36,20 +36,16 @@ public class AuthController {
     
     
     @PostMapping("/register")
-    public ResponseEntity<UserResponseDto> register(
-            @Valid @RequestBody RegisterRequestDto request) {
+    public ResponseEntity<UserResponseDto> register(@Valid @RequestBody RegisterRequestDto request) {
 
-        return new ResponseEntity<>(
-                authService.register(request),
-                HttpStatus.CREATED);
+        return new ResponseEntity<>(authService.register(request), HttpStatus.CREATED);
     }
     
     
     
 
     @PostMapping("/login")
-    public ResponseEntity<JwtResponseDto> login(
-            @Valid @RequestBody LoginRequestDto request) {
+    public ResponseEntity<JwtResponseDto> login( @Valid @RequestBody LoginRequestDto request) {
 
         return ResponseEntity.ok(authService.login(request));
     }
@@ -58,9 +54,7 @@ public class AuthController {
     
     
     @PostMapping("/change-password/{userId}")
-    public ResponseEntity<String> changePassword(
-            @PathVariable Long userId,
-            @Valid @RequestBody ChangePasswordDto request) {
+    public ResponseEntity<String> changePassword( @PathVariable Long userId, @Valid @RequestBody ChangePasswordDto request) {
 
         authService.changePassword(userId, request);
 
@@ -69,8 +63,7 @@ public class AuthController {
     
     
     @PostMapping("/forgot-password")
-    public ResponseEntity<String> forgotPassword(
-            @Valid @RequestBody ForgotPasswordDto request) {
+    public ResponseEntity<String> forgotPassword( @Valid @RequestBody ForgotPasswordDto request) {
 
         authService.forgotPassword(request);
 
@@ -93,16 +86,14 @@ public class AuthController {
     
     
     @GetMapping("/users/{id}")
-    public ResponseEntity<UserResponseDto> getUserById(
-            @PathVariable Long id) {
+    public ResponseEntity<UserResponseDto> getUserById(@PathVariable Long id) {
 
         return ResponseEntity.ok(authService.getUserById(id));
     }
     
     
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<String> deleteUser(
-            @PathVariable Long id) {
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
 
         authService.deleteUser(id);
 
