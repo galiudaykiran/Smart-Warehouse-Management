@@ -247,5 +247,14 @@ public class AuthServiceImpl implements AuthService {
 
         userRepository.save(user);
     }
+    @Override
+    public UserResponseDto getUserByEmail(String email) {
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found"));
+
+        return userMapper.toResponseDto(user);
+    }
 
 }

@@ -5,8 +5,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.smart_warehouse_management.Authentication.Dto.UserResponseDto;
+import com.smart_warehouse_management.Authentication.Service.AuthService;
 import com.smart_warehouse_management.orders.dto.PurchaseItemDTO;
 import com.smart_warehouse_management.orders.dto.PurchaseOrderRequestDTO;
 import com.smart_warehouse_management.orders.entity.PurchaseItem;
@@ -18,13 +22,18 @@ import com.smart_warehouse_management.orders.repository.PurchaseOrderRepository;
 import com.smart_warehouse_management.orders.service.*;
 
 @Service
-public class PurchaseOrderServiceImpl implements PurchaseOrderService {
+public class PurchaseOrderServiceImpl  implements PurchaseOrderService {
 
 	   private final PurchaseOrderRepository purchaseOrderRepository;
+	   private final AuthService authService;
 
-	    public PurchaseOrderServiceImpl(PurchaseOrderRepository purchaseOrderRepository) {
-	        this.purchaseOrderRepository = purchaseOrderRepository;
-	    }
+	   public PurchaseOrderServiceImpl(
+		        PurchaseOrderRepository purchaseOrderRepository,
+		        AuthService authService) {
+
+		    this.purchaseOrderRepository = purchaseOrderRepository;
+		    this.authService = authService;
+		}
 
 	   
 	    
@@ -37,8 +46,16 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
 	        order.setCreatedAt(LocalDateTime.now());
 
-	        order.setCreatedBy(1L); 
+	        //order.setCreatedBy(1L); 
 
+	        Authentication authentication =
+	                SecurityContextHolder.getContext().getAuthentication();
+
+	        String email = authentication.getName();
+
+	        UserResponseDto user = authService.getUserByEmail(email);
+
+	        order.setCreatedBy(user.getId());
 	        order.setStatus(OrderStatus.APPROVED);
 
 	        List<PurchaseItem> items = new ArrayList<>();

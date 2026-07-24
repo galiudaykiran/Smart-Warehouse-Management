@@ -22,6 +22,7 @@ public interface AuthService {
     List<UserResponseDto> getAllUsers();
 
     UserResponseDto getUserById(Long id);
+    UserResponseDto getUserByEmail(String email);
 
     UserResponseDto updateUser(Long id, RegisterRequestDto request);
 
