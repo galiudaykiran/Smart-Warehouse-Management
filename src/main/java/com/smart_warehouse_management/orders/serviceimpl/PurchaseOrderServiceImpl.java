@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.smart_warehouse_management.Authentication.Dto.UserResponseDto;
 import com.smart_warehouse_management.Authentication.Service.AuthService;
+import com.smart_warehouse_management.Inventory.dto.AddStockRequestDTO;
+import com.smart_warehouse_management.Inventory.service.InventoryService;
 import com.smart_warehouse_management.orders.dto.PurchaseItemDTO;
 import com.smart_warehouse_management.orders.dto.PurchaseOrderRequestDTO;
 import com.smart_warehouse_management.orders.entity.PurchaseItem;
@@ -26,14 +28,25 @@ public class PurchaseOrderServiceImpl  implements PurchaseOrderService {
 
 	   private final PurchaseOrderRepository purchaseOrderRepository;
 	   private final AuthService authService;
+	   private final InventoryService inventoryService;
 
-	   public PurchaseOrderServiceImpl(
-		        PurchaseOrderRepository purchaseOrderRepository,
-		        AuthService authService) {
+//	   public PurchaseOrderServiceImpl(
+//		        PurchaseOrderRepository purchaseOrderRepository,
+//		        AuthService authService) {
+//
+//		    this.purchaseOrderRepository = purchaseOrderRepository;
+//		    this.authService = authService;
+//		}
+	   public PurchaseOrderServiceImpl(PurchaseOrderRepository purchaseOrderRepository,
+               InventoryService inventoryService,AuthService authService) {
 
-		    this.purchaseOrderRepository = purchaseOrderRepository;
-		    this.authService = authService;
-		}
+		   this.purchaseOrderRepository = purchaseOrderRepository;
+
+		   this.inventoryService = inventoryService;
+
+		   this.authService = authService;
+
+	   }
 
 	   
 	    
@@ -45,6 +58,7 @@ public class PurchaseOrderServiceImpl  implements PurchaseOrderService {
 	        order.setSupplierId(dto.getSupplierId());
 
 	        order.setCreatedAt(LocalDateTime.now());
+	        order.setWarehouseId(dto.getWarehouseId());
 
 	        //order.setCreatedBy(1L); 
 
@@ -56,7 +70,7 @@ public class PurchaseOrderServiceImpl  implements PurchaseOrderService {
 	        UserResponseDto user = authService.getUserByEmail(email);
 
 	        order.setCreatedBy(user.getId());
-	        order.setStatus(OrderStatus.APPROVED);
+	        order.setStatus(OrderStatus.PENDING);
 
 	        List<PurchaseItem> items = new ArrayList<>();
 
@@ -116,6 +130,18 @@ public class PurchaseOrderServiceImpl  implements PurchaseOrderService {
 	        }
 
 	        order.setStatus(OrderStatus.APPROVED);
+	        for (PurchaseItem item : order.getItems()) {
+
+	            AddStockRequestDTO dto = new AddStockRequestDTO();
+
+	            dto.setWarehouseId(order.getWarehouseId());
+	            dto.setProductId(item.getProductId());
+	            dto.setQuantity(item.getQuantity());
+	            dto.setUserId(order.getCreatedBy());
+
+	            System.out.println("Product ID being sent: " + dto.getProductId());
+	            inventoryService.addStock(dto);
+	        }
 
 	        return purchaseOrderRepository.save(order);
 	    }
