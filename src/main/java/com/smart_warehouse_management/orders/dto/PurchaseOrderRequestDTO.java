@@ -8,6 +8,7 @@ import lombok.Data;
 public class PurchaseOrderRequestDTO {
 
     private Long supplierId;
+    private Long warehouseId;
 
     private List<PurchaseItemDTO> items;
 
