@@ -1,4 +1,5 @@
 
+
 package com.smart_warehouse_management.Inventory.scheduler;
 
 import java.util.List;
@@ -55,3 +56,4 @@ public class LowStockScheduler {
     }
 
 }
+

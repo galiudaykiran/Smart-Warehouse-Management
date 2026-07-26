@@ -23,6 +23,8 @@ public class PurchaseOrder {
 
     @Column(name = "total_amount")
     private Double totalAmount;
+    @Column(name = "warehouse_id")
+    private Long warehouseId;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
